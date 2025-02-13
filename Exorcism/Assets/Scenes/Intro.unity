@@ -208,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 191379781}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -9.87, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -382,8 +382,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -457,7 +457,7 @@ Transform:
   m_GameObject: {fileID: 1162642786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.22, y: 0.00999999, z: 0}
+  m_LocalPosition: {x: -10.09, y: 0.00999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 1333216548}
   - component: {fileID: 1333216547}
   m_Layer: 5
-  m_Name: start
+  m_Name: Start Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -502,8 +502,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 46.75}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 10}
+  m_SizeDelta: {x: 105, y: 20}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1333216547
 MonoBehaviour:
@@ -782,7 +782,7 @@ Transform:
   m_GameObject: {fileID: 1497317413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -9.87, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -882,7 +882,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3012264751168351524, guid: 5367cfc8cbe201640979bbc3a00c5c0c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -9.87
       objectReference: {fileID: 0}
     - target: {fileID: 3012264751168351524, guid: 5367cfc8cbe201640979bbc3a00c5c0c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1007,7 +1007,7 @@ Transform:
   m_GameObject: {fileID: 1821179482}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.26, z: 0}
+  m_LocalPosition: {x: -9.87, y: -0.26, z: 0}
   m_LocalScale: {x: 0.925, y: 0.9125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

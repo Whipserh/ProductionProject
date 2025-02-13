@@ -16,9 +16,22 @@ public class ExorcismEnding : MonoBehaviour
     public GameObject fade3;
 
     // Start is called before the first frame update
+    protected bool exitOnce;
     void Start()
     {
+        exitOnce = false;
         buttons.SetActive(true);
+    }
+
+
+    public void Update()
+    {
+
+        if (ExorcismManager.progression >=100 && !exitOnce)
+        {
+            exitOnce=true;
+            StartG();
+        }
     }
 
     public void Fail()

@@ -10,6 +10,11 @@ public class ExorcismEnding : MonoBehaviour
     public GameObject win;
     public GameObject lose;
 
+    // 8 bit fading
+    public GameObject fade1;
+    public GameObject fade2;
+    public GameObject fade3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,4 +38,24 @@ public class ExorcismEnding : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
+
+    public void StartG()
+    {
+        StartCoroutine(FadeOut());
+    }
+
+    private IEnumerator FadeOut()
+    {
+
+        fade1.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        fade2.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        fade3.SetActive(true);
+        //  yield return new WaitForSeconds(0.3f);
+
+        Debug.Log("we good");
+        SceneManager.LoadScene(1);
+    }
+
 }

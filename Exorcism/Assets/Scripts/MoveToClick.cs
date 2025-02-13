@@ -9,7 +9,10 @@ public class MoveToClick : MonoBehaviour
 
 
     public float speed = 5f;
+    public Rigidbody2D rb;
     private Vector3 target;
+
+    public bool hasKeycard = false;
 
 
     // Start is called before the first frame update
@@ -28,5 +31,10 @@ public class MoveToClick : MonoBehaviour
         }
 
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+    }
+
+    public void GetKeycard()
+    {
+        hasKeycard = true;
     }
 }

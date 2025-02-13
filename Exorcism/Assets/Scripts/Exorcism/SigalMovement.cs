@@ -34,11 +34,11 @@ public class SigalMovement : MonoBehaviour
                 //choose a random point on the oposite side that it came from
                 if (transform.position.y < exorcismManager.transform.position.y)//if the sigil came from the bottom send it to the top
                 {
-                    y = Random.Range(exorcismManager.transform.position.y, exorcismManager.transform.position.y + width / 2);
+                    y = Random.Range(exorcismManager.transform.position.y, exorcismManager.transform.position.y + (width / 2));
                 }
                 else//if top then bottom
                 {
-                    y = Random.Range(exorcismManager.transform.position.y - width / 2, exorcismManager.transform.position.y);
+                    y = Random.Range(exorcismManager.transform.position.y - (width / 2), exorcismManager.transform.position.y);
                 }
 
                 goal = new Vector2(x, y);
@@ -47,11 +47,11 @@ public class SigalMovement : MonoBehaviour
             default://goes Across the scene either movement 0 or 2
                 if (transform.position.x < exorcismManager.transform.position.x)//sigil is going from left to right
                 {
-                    x = exorcismManager.transform.position.x + length / 2;
+                    x = exorcismManager.transform.position.x + (length / 2);
                 }
                 else//sigil is going from right to left
                 {
-                    x = exorcismManager.transform.position.x - length / 2;
+                    x = exorcismManager.transform.position.x - (length / 2);
                 }
                 y = Random.Range(exorcismManager.transform.position.y - (width / 2), exorcismManager.transform.position.y + (width / 2));
                 goal = new Vector2(x, y);

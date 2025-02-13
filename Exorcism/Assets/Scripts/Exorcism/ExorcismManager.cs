@@ -44,6 +44,7 @@ public class ExorcismManager : MonoBehaviour
     {
         if (progression >= 100)
         {
+            if(sigilTransforms != null)
             Destroy(sigilTransforms.gameObject);
             setPossessedSprite(false);
             return;

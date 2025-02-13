@@ -42,7 +42,6 @@ public class SigalMovement : MonoBehaviour
                 }
 
                 goal = new Vector2(x, y);
-                goalTransform.position = goal;
                 break;
 
             default://goes Across the scene either movement 0 or 2
@@ -56,17 +55,20 @@ public class SigalMovement : MonoBehaviour
                 }
                 y = Random.Range(exorcismManager.transform.position.y - (width / 2), exorcismManager.transform.position.y + (width / 2));
                 goal = new Vector2(x, y);
-                goalTransform.position = goal;
+                Vector2 direction = goal - (Vector2)transform.position;
+                float currentAngle = (Mathf.Atan2(transform.right.y, transform.right.x) * Mathf.Rad2Deg);
+                float targetAngle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+                transform.Rotate(new Vector3(0, 0, -1 * turnSpeed * Time.deltaTime));
                 break;
         }
 
-        Debug.Log(goal);
+        //Debug.Log(goal);
         rb = gameObject.GetComponent<Rigidbody2D>();
         Destroy(gameObject, 10);
     }
 
     private float timer = 0;
-    public Transform goalTransform;
+
     public float amptitude = 1, period = 1;
     // Update is called once per frame
     void Update()
@@ -80,9 +82,9 @@ public class SigalMovement : MonoBehaviour
                 Vector2 direction = exorcismManager.transform.position - transform.position;
                 
                 float angle = Mathf.Atan2(direction.y, direction.x );
-                Debug.Log(angle);
+                //Debug.Log(angle);
                 Vector2 sinwave = amptitude * Mathf.Sin((360/period)*timer * Mathf.Deg2Rad) * (new Vector2(Mathf.Abs(Mathf.Sin(angle)), Mathf.Abs(Mathf.Cos(angle))));
-                Debug.Log(sinwave);
+                //Debug.Log(sinwave);
                 transform.position += (Vector3)sinwave + (transform.right*Time.deltaTime);
                 break;
             default: //straight/simi-linear movement
@@ -140,13 +142,17 @@ public class SigalMovement : MonoBehaviour
 
     }//end turn function
 
+
+    public float value = 10;
     //when the player clicks on the mouse
     private void OnMouseDown()
     {
+
         //TODO:play animation
 
         //update the progression
 
+        ExorcismManager.progression+= value;
         //destroy object
         Destroy(gameObject);
     }

@@ -20,6 +20,8 @@ public class ExorcismManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         timer = 0;
         //double check the chances for each sigal
        float totalChance = 0;
@@ -40,19 +42,27 @@ public class ExorcismManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (progression >= 100)
+        {
+            Destroy(sigilTransforms.gameObject);
+            setPossessedSprite(false);
+            return;
+        }
         //spawn a new sigil every so often
         timer += Time.deltaTime;
-        if(timer >= spawnRate)
+        //Debug.Log(timer);
+        if(timer >= spawnRate && progression < 100)
         {
+            timer = 0;
             spawnSigil();
         }
 
 
         //successful able to exorcism them
-        if(progression >= 100)
-        {
+        
 
-        }
+        progression -= decreasingRate * Time.deltaTime;
+        Debug.Log("Exorcism Progression: "+progression);
     }
 
 
@@ -74,13 +84,13 @@ public class ExorcismManager : MonoBehaviour
 
         //chose spawn location and direction
         float x;
-        if (Random.Range(0, 1) == 0)
+        if (Random.Range(0, 1f) >= 0.5f)
         {
-            x = transform.position.x - length / 2;
+            x = transform.position.x - (length / 2);
         }
         else
         {
-            x = transform.position.x + length / 2;
+            x = transform.position.x + (length / 2);
         }
         Vector2 position = new Vector2(x, Random.Range(transform.position.y - (width/2), transform.position.y + (width / 2)));
         
@@ -106,7 +116,14 @@ public class ExorcismManager : MonoBehaviour
 
         //make the crewmate possessed
         setPossessedSprite(true);
-        
+
+
+        if (sigilTransforms == null)
+        {
+            GameObject sigils = new GameObject("sigilTransforms");
+            sigils.transform.position = transform.position;
+            sigilTransforms = sigils.transform;
+        }
 
     }//reset exorcism
 

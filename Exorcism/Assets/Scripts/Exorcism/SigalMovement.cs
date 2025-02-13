@@ -54,7 +54,7 @@ public class SigalMovement : MonoBehaviour
                 {
                     x = exorcismManager.transform.position.x - length / 2;
                 }
-                y = Random.Range(exorcismManager.transform.position.y - width / 2, exorcismManager.transform.position.y + width / 2);
+                y = Random.Range(exorcismManager.transform.position.y - (width / 2), exorcismManager.transform.position.y + (width / 2));
                 goal = new Vector2(x, y);
                 goalTransform.position = goal;
                 break;
@@ -97,7 +97,7 @@ public class SigalMovement : MonoBehaviour
     private void turn(Vector3 direction)
     {
 
-        float currentAngle = (Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg);
+        float currentAngle = (Mathf.Atan2(transform.right.y, transform.right.x) * Mathf.Rad2Deg);
         float targetAngle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         //Debug.Log(currentAngle + ", " + targetAngle);
         if (currentAngle < 0)

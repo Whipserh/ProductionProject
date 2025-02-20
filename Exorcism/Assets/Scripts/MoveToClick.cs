@@ -10,11 +10,38 @@ public class MoveToClick : MonoBehaviour
 
     public float speed = 5f;
     public Rigidbody2D rb;
-    private Vector3 target;
+    private Vector3 target; // marker location (on-click)
 
     public bool hasKeycard = false;
+    public bool isMoving = false;
 
     public Transform clickMarker;
+
+
+    // get direction for animation / walk cycle
+    public enum FacingDirection
+    {
+        left, right
+    }
+
+    public FacingDirection GetFacingDirection()
+    {
+        if (target.x < transform.position.x)
+        {
+            Debug.Log("marker left");
+            return FacingDirection.left;
+        }
+
+        if (target.x > transform.position.x)
+        {
+            Debug.Log("marker right");
+            return FacingDirection.right;
+        }
+
+        // default animation
+        return FacingDirection.left;
+    }
+
 
 
     // Start is called before the first frame update
@@ -34,6 +61,11 @@ public class MoveToClick : MonoBehaviour
 
             clickMarker.gameObject.SetActive(true);
             clickMarker.position = target;
+            isMoving = true;
+
+            //  UNCOMMENT THIS TO TEST IF ENUM RETURNS CORRECT VALUE
+            //  GetFacingDirection();
+
         }
 
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
@@ -41,6 +73,7 @@ public class MoveToClick : MonoBehaviour
         if (clickMarker.position == transform.position)
         {
             clickMarker.gameObject.SetActive(false);
+            isMoving = false;
         }
 
     }
@@ -50,7 +83,7 @@ public class MoveToClick : MonoBehaviour
         hasKeycard = true;
     }
 
-    // if play hits a wall, place marker at their position so movement stops
+    // if player hits a wall, place marker at their position so movement stops
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision != null)
@@ -58,6 +91,7 @@ public class MoveToClick : MonoBehaviour
             Debug.Log("hit wall!");
             clickMarker.gameObject.SetActive(false);
             target = transform.position;
+            isMoving = false;
         }
     }
 

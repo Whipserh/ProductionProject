@@ -14,11 +14,14 @@ public class MoveToClick : MonoBehaviour
 
     public bool hasKeycard = false;
 
+    public Transform clickMarker;
+
 
     // Start is called before the first frame update
     void Start()
     {
         target = transform.position;
+        clickMarker.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,13 +31,34 @@ public class MoveToClick : MonoBehaviour
         {
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             target.z = transform.position.z;
+
+            clickMarker.gameObject.SetActive(true);
+            clickMarker.position = target;
         }
 
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+        if (clickMarker.position == transform.position)
+        {
+            clickMarker.gameObject.SetActive(false);
+        }
+
     }
 
     public void GetKeycard()
     {
         hasKeycard = true;
     }
+
+    // if play hits a wall, place marker at their position so movement stops
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision != null)
+        {
+            Debug.Log("hit wall!");
+            clickMarker.gameObject.SetActive(false);
+            target = transform.position;
+        }
+    }
+
 }

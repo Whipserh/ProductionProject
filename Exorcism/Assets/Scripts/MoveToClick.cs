@@ -63,6 +63,8 @@ public class MoveToClick : MonoBehaviour
             clickMarker.position = target;
             isMoving = true;
 
+            TelemetryLogger.Log(this, "Click");
+            TelemetryLogger.Log(this, "CurrentLocation", transform.position);
             //  UNCOMMENT THIS TO TEST IF ENUM RETURNS CORRECT VALUE
             //  GetFacingDirection();
 

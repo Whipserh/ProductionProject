@@ -63,7 +63,7 @@ public class ExorcismManager : MonoBehaviour
         
 
         progression -= decreasingRate * Time.deltaTime;
-        Debug.Log("Exorcism Progression: "+progression);
+        //Debug.Log("Exorcism Progression: "+progression);
     }
 
 

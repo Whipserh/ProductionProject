@@ -106,7 +106,7 @@ public class SigalMovement : MonoBehaviour
             currentAngle += 360;
         if (targetAngle < 0)
             targetAngle += 360;
-        Debug.Log(currentAngle + ", " + targetAngle);
+        //Debug.Log(currentAngle + ", " + targetAngle);
         //Debug.Log(Mathf.FloorToInt(180 + currentAngle) % 360);
         //if we are not in our buffer range then we move
         if (Mathf.Abs(currentAngle - targetAngle) > turnDebuffer)
@@ -142,6 +142,14 @@ public class SigalMovement : MonoBehaviour
 
     }//end turn function
 
+    [System.Serializable]
+    public struct sigilData
+    {
+        public Vector2 direction;
+        public Vector2 position;
+        public string name;
+    }
+
 
     public float value = 10;
     //when the player clicks on the mouse
@@ -151,8 +159,16 @@ public class SigalMovement : MonoBehaviour
         //TODO:play animation
 
         //update the progression
-
         ExorcismManager.progression+= value;
+
+        var data = new sigilData()
+        {
+            direction = transform.right,
+            position = transform.position,
+            name = gameObject.name
+        };
+        TelemetryLogger.Log(this, "Sigil Destroyed", data);
+
         //destroy object
         Destroy(gameObject);
     }

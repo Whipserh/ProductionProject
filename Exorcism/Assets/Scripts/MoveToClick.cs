@@ -56,8 +56,15 @@ public class MoveToClick : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0)) // LEFT CLICK
         {
+
+            
+
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             target.z = transform.position.z;
+
+
+            TelemetryLogger.Log(this, "movement", target);
+
 
             clickMarker.gameObject.SetActive(true);
             clickMarker.position = target;
@@ -72,11 +79,30 @@ public class MoveToClick : MonoBehaviour
 
         if (clickMarker.position == transform.position)
         {
+            if(clickMarker.gameObject.activeInHierarchy)
+            TelemetryLogger.Log(this, "reach destination");
+
             clickMarker.gameObject.SetActive(false);
             isMoving = false;
         }
 
     }
+
+    //stuff for future
+    /**
+    [System.Serializable]
+    public struct killEvent
+    {
+        public string player; 
+        public Vector3 source;
+        public Vector3 destination;
+        public string weaponName;
+    }
+    **/
+
+
+
+
 
     public void GetKeycard()
     {

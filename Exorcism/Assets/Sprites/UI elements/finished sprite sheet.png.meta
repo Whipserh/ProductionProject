@@ -127,6 +127,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 320
+        width: 192
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d841b011db9c7ee4ba86aaa455c11698
+      internalID: -1549314762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: finished sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 256
         width: 192
         height: 64
@@ -137,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6378732ae3eaf4d4da8e4e540aa937bc
-      internalID: 126681449
+      spriteID: b272bbb47ea688a46af1129c86e9a90c
+      internalID: 505940190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: finished sprite sheet_1
+      name: finished sprite sheet_2
       rect:
         serializedVersion: 2
         x: 0
@@ -158,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 293e2e7840b6b45448ded1b3407ac63d
-      internalID: -1760258066
+      spriteID: 486c7becebb896e448ccc51254f78f73
+      internalID: -234842613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: finished sprite sheet_2
+      name: finished sprite sheet_3
       rect:
         serializedVersion: 2
         x: 0
@@ -179,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fd8cae1cccc18040aa51b07e2a938d0
-      internalID: 774848075
+      spriteID: 7795b1860f28e174f90e2c12baceaafa
+      internalID: -563158517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: finished sprite sheet_3
+      name: finished sprite sheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -200,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e09f3a6d93249a4eb2cb00e21a8963a
-      internalID: 1142794033
+      spriteID: c1550a5da6243b64ea7240edc1ec14a0
+      internalID: 408915324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: finished sprite sheet_4
+      name: finished sprite sheet_5
       rect:
         serializedVersion: 2
         x: 0
@@ -221,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c317a39d460503e428df67f9e6740140
-      internalID: 824178732
+      spriteID: 3c1b6197b1cefb144b1488a893c81ba6
+      internalID: -1902256479
       vertices: []
       indices: 
       edges: []
@@ -238,11 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      finished sprite sheet_0: 126681449
-      finished sprite sheet_1: -1760258066
-      finished sprite sheet_2: 774848075
-      finished sprite sheet_3: 1142794033
-      finished sprite sheet_4: 824178732
+      finished sprite sheet_0: -1549314762
+      finished sprite sheet_1: 505940190
+      finished sprite sheet_2: -234842613
+      finished sprite sheet_3: -563158517
+      finished sprite sheet_4: 408915324
+      finished sprite sheet_5: -1902256479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

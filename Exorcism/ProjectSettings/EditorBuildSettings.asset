@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: 719d06959149cd541a90e1e40b5a6b7b
   - enabled: 1
+    path: Assets/Scenes/TrapTest.unity
+    guid: 43b21e3bc09c9804094c51674f35e7c9
+  - enabled: 0
     path: Assets/Scenes/Room1.unity
     guid: bfbe89fda2cbfde4e80148fff3b58885
   - enabled: 1
@@ -17,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Exorcism.unity
     guid: 35a240ce0866d3147a22a5e78fd1e5f5
+  - enabled: 1
+    path: Assets/Scenes/Corridor.unity
+    guid: 77a13efb21f1ec842a0f42b7bb2b23f4
   m_configObjects: {}

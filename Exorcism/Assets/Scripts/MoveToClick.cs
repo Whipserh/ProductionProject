@@ -17,6 +17,18 @@ public class MoveToClick : MonoBehaviour
 
     public Transform clickMarker;
 
+    public Inventory inv;
+    public GameObject trap;
+
+    // TELEMETRY
+    [System.Serializable]
+    public struct MovementData
+    {
+        public Vector3 clickNode;
+        public Vector3 playerPos;
+        public bool hasCard;
+    }
+
 
     // get direction for animation / walk cycle
     public enum FacingDirection
@@ -54,10 +66,31 @@ public class MoveToClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)) // LEFT CLICK
+
+        if (inv.equiped[1] && inv.hasInInventory[1] && Input.GetMouseButtonDown(0))
         {
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             target.z = transform.position.z;
+
+            Debug.Log("tried placing trap");
+            inv.PlaceTrap();
+            Instantiate(trap, target, transform.rotation);
+            return;
+
+        }
+
+
+        if (Input.GetMouseButtonDown(0)) // LEFT CLICK
+        {
+            if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < -3) // if player clicks OOB
+            {
+                return;
+            }
+            
+            
+            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            target.z = transform.position.z;
+
 
             clickMarker.gameObject.SetActive(true);
             clickMarker.position = target;
@@ -65,6 +98,18 @@ public class MoveToClick : MonoBehaviour
 
             //  UNCOMMENT THIS TO TEST IF ENUM RETURNS CORRECT VALUE
             //  GetFacingDirection();
+
+
+            var data = new MovementData()
+            {
+                clickNode = target,
+                playerPos = transform.position,
+                hasCard = hasKeycard
+            };
+
+            // only logs when player clicks
+            TelemetryLogger.Log(this, "MoveToNode", data);
+
 
         }
 
@@ -75,6 +120,8 @@ public class MoveToClick : MonoBehaviour
             clickMarker.gameObject.SetActive(false);
             isMoving = false;
         }
+
+        
 
     }
 

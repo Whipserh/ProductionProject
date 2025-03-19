@@ -9,6 +9,8 @@ public class ItemPickup : MonoBehaviour
     public BoxCollider2D trigger;
     public MoveToClick player;
 
+    public Inventory inv;
+
     public GameObject invGet;
 
     // 8 bit fading
@@ -19,6 +21,8 @@ public class ItemPickup : MonoBehaviour
     public GameObject hint1;
     public GameObject hint2;
     public GameObject hint3;
+
+    public int itemType = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -38,19 +42,43 @@ public class ItemPickup : MonoBehaviour
         Debug.Log(collision.gameObject.name);
 
         // if item is collected...
-        if (collision.gameObject.name == "Player") 
+        if (collision.gameObject.name == "Player" && itemType == 1) 
         {
             Debug.Log("Item acquired!");
             trigger.enabled = false;
             tableWithItem.SetActive(false);
             tableWithoutItem.SetActive(true);
-            player.GetKeycard();
+            //  player.GetKeycard();
 
-            invGet.SetActive(true);
+            inv.GetKeycard();
+
+            // TELEMETRY
+            TelemetryLogger.Log(this, "GotKeycard");
+
+            invGet.SetActive(true); //notif
 
             StartCoroutine(ItemNotification());
             StartCoroutine(KeyHint());
         }
+
+
+        // if item is collected...
+        if (collision.gameObject.name == "Player" && itemType == 2)
+        {
+            Debug.Log("Item acquired!");
+            trigger.enabled = false;
+            tableWithItem.SetActive(false);
+            tableWithoutItem.SetActive(true);
+            //  player.GetKeycard();
+
+            inv.GetTrap();
+
+            invGet.SetActive(true); //notif
+
+            StartCoroutine(ItemNotification());
+            StartCoroutine(KeyHint());
+        }
+
     }
 
     private IEnumerator ItemNotification()

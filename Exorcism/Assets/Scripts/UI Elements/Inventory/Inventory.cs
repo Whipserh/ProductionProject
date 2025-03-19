@@ -11,6 +11,24 @@ public class Inventory : MonoBehaviour
     public GameObject[] images = new GameObject[4];  
 
 
+    // prime added this stuff for the playtest build, feel free to edit / remove / fix anything
+    public void GetKeycard()
+    {
+        images[0].SetActive(true);
+        hasInInventory[0] = true;
+    }
+
+    public void GetTrap()
+    {
+        images[1].SetActive(true);
+        hasInInventory[1] = true;
+    }
+
+    public void PlaceTrap()
+    {
+        images[1].SetActive(false);
+        hasInInventory[1] = false;
+    }
 
 
     //sets all the items to bools

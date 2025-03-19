@@ -6,6 +6,8 @@ public class SinMovement : MonoBehaviour
 {
     // https://discussions.unity.com/t/using-mathf-sin-to-move-an-object/115367
     private Vector3 _startPosition;
+    public float xVal = 9f;
+    public float yVal = 2f;
 
     void Start()
     {
@@ -14,6 +16,6 @@ public class SinMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = _startPosition + new Vector3(Mathf.Sin(Time.time) / 9f, Mathf.Sin(Time.time) / 2f, 0.0f);
+        transform.position = _startPosition + new Vector3(Mathf.Sin(Time.time) / xVal, Mathf.Sin(Time.time) / yVal, 0.0f);
     }
 }

@@ -142,4 +142,9 @@ public class MoveToClick : MonoBehaviour
         }
     }
 
+    public void hide()
+    {
+
+    }
+
 }

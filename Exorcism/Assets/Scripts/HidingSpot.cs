@@ -15,6 +15,7 @@ public class HidingSpot : MonoBehaviour
 
     void Start()
     {
+        
         //lazy assign for level designers
         Collider2D collider = Physics2D.OverlapCircle(transform.position, Mathf.Infinity, layer.value);
         player = collider.gameObject;
@@ -22,9 +23,10 @@ public class HidingSpot : MonoBehaviour
 
     void Update()
     {
-        
+        float distance = Vector2.Distance(player.transform.position, transform.position);
+        Debug.Log(distance);
         //toggle the icon to hid when the player gets close
-        if(Vector2.Distance(player.transform.position, transform.position) < validHidingDistance)
+        if(distance < validHidingDistance)
             //if we are close enough to hide
         {
             //activate the icon based on if the player is hiding or not
@@ -35,8 +37,12 @@ public class HidingSpot : MonoBehaviour
                 player.SetActive(!isHiding);
             }
         }
+        else
+        {
+            icon.SetActive(false);
+        }
 
     }
 
-s
+
 }

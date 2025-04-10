@@ -68,7 +68,18 @@ public class ExorcismEnding : MonoBehaviour
         //  yield return new WaitForSeconds(0.3f);
 
         Debug.Log("we good");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
+    }
+
+    public void LoadScene(int sceneNum)
+    {
+        SceneManager.LoadScene(sceneNum);
+        Application.Quit();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 }

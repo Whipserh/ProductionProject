@@ -101,7 +101,7 @@ MonoBehaviour:
   trigger: {fileID: 2675220470730712131}
   player: {fileID: 0}
   inv: {fileID: 0}
-  nextRoom: 3
+  nextRoom: 5
   fade1: {fileID: 0}
   fade2: {fileID: 0}
   fade3: {fileID: 0}

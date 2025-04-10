@@ -13,7 +13,7 @@ public class GhostTrap : MonoBehaviour
 
     public Inventory inv;
 
-    public int nextRoom = 2;
+    public int nextRoom = 5;
 
     // 8 bit fading
     public GameObject fade1;

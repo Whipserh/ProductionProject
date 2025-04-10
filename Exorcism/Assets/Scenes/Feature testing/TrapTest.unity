@@ -5149,7 +5149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1799048856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7577,9 +7577,13 @@ MonoBehaviour:
   rb: {fileID: 7519073002358870224}
   hasKeycard: 0
   isMoving: 0
+  isHurt: 0
   clickMarker: {fileID: 1126318951}
   inv: {fileID: 2780510001975850954}
   trap: {fileID: 0}
+  normalSprite: {fileID: 0}
+  flash1: {fileID: 0}
+  flash2: {fileID: 0}
 --- !u!222 &7081033629452809333
 CanvasRenderer:
   m_ObjectHideFlags: 0

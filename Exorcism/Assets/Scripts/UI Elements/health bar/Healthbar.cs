@@ -44,4 +44,9 @@ public class Healthbar : MonoBehaviour
         healthBars[newHealth].SetActive(true);//turn the new health bar on
         health = newHealth;
     }
+
+    public int getHealh()
+    {
+        return health;
+    }
 }

@@ -21,7 +21,7 @@ public class GhostMovement : MonoBehaviour
         Vector3 destination = patrolPoints[patrolIndex].position;
         if(Vector3.Distance(transform.position, destination) <= stoppingDistance)
         {
-            patrolIndex += (patrolIndex+1) % patrolPoints.Length;
+            patrolIndex = (patrolIndex+1) % patrolPoints.Length;
             destination = patrolPoints[patrolIndex].position;
         }
         //movetowards next point

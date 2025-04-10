@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MoveToClick : MonoBehaviour
@@ -68,9 +69,31 @@ public class MoveToClick : MonoBehaviour
         clickMarker.gameObject.SetActive(false);
     }
 
+
+    private float healthRegenTimer = 0;
+    public float regenHealthTime = 5;
     // Update is called once per frame
     void Update()
     {
+        //regen the health if the health is 1 or less
+        if(HealhBarManager.getHealh() < 2 )
+        {
+            if (healthRegenTimer >= regenHealthTime)
+            {
+                healthRegenTimer = 0;
+                HealhBarManager.setHealth(HealhBarManager.getHealh() + 1);
+            }
+            else
+            {
+                //Debug.Log(healthRegenTimer);
+                healthRegenTimer += Time.deltaTime;
+            }
+            
+        }else
+        {
+            healthRegenTimer  = 0;
+        }
+
 
         if (inv.equiped[1] && inv.hasInInventory[1] && Input.GetMouseButtonDown(0))
         {
@@ -154,6 +177,10 @@ public class MoveToClick : MonoBehaviour
         //Debug.Log(collision.gameObject);
     }
 
+
+    public Healthbar HealhBarManager;
+
+
     private IEnumerator DamageFlash(Collision2D ghostCollider)
     {
 
@@ -164,6 +191,7 @@ public class MoveToClick : MonoBehaviour
         
         normalSprite.SetActive(false);
         flash1.SetActive(true);
+        HealhBarManager.setHealth(HealhBarManager.getHealh() - 1);
         yield return new WaitForSeconds(0.1f);
         flash1.SetActive(false);
         flash2.SetActive(true);
@@ -171,13 +199,11 @@ public class MoveToClick : MonoBehaviour
         flash2.SetActive(false);
         normalSprite.SetActive(true);
         isHurt = false;
-
+     
         ghostCol.enabled = true;
     }
 
-    public void hide()
-    {
-
-    }
-
 }
+
+
+

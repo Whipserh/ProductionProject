@@ -14,11 +14,16 @@ public class MoveToClick : MonoBehaviour
 
     public bool hasKeycard = false;
     public bool isMoving = false;
+    public bool isHurt = false; //only enabled during damage cooldown
 
     public Transform clickMarker;
 
     public Inventory inv;
     public GameObject trap;
+
+    public GameObject normalSprite;
+    public GameObject flash1;
+    public GameObject flash2;
 
     // TELEMETRY
     [System.Serializable]
@@ -141,7 +146,33 @@ public class MoveToClick : MonoBehaviour
             isMoving = false;
         }
 
-        Debug.Log(collision.gameObject);
+        if (collision.gameObject.name == "Ghost" && !isHurt)
+        {
+            StartCoroutine(DamageFlash(collision));
+        }
+
+        //Debug.Log(collision.gameObject);
+    }
+
+    private IEnumerator DamageFlash(Collision2D ghostCollider)
+    {
+
+        BoxCollider2D ghostCol = ghostCollider.gameObject.GetComponent<BoxCollider2D>();
+        ghostCol.enabled = false;
+        
+        isHurt = true;
+        
+        normalSprite.SetActive(false);
+        flash1.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        flash1.SetActive(false);
+        flash2.SetActive(true);
+        yield return new WaitForSeconds(1.25f);
+        flash2.SetActive(false);
+        normalSprite.SetActive(true);
+        isHurt = false;
+
+        ghostCol.enabled = true;
     }
 
     public void hide()

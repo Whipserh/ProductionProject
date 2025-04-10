@@ -108,7 +108,7 @@ public class MoveToClick : MonoBehaviour
             };
 
             // only logs when player clicks
-            TelemetryLogger.Log(this, "MoveToNode", data);
+        //    TelemetryLogger.Log(this, "MoveToNode", data);
 
 
         }
@@ -140,6 +140,8 @@ public class MoveToClick : MonoBehaviour
             target = transform.position;
             isMoving = false;
         }
+
+        Debug.Log(collision.gameObject);
     }
 
     public void hide()

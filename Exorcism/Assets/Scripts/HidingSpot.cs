@@ -13,6 +13,8 @@ public class HidingSpot : MonoBehaviour
     public float validHidingDistance;
     private bool isHiding = false;
 
+    public GameObject ghost;
+
     void Start()
     {
         
@@ -34,7 +36,12 @@ public class HidingSpot : MonoBehaviour
             if (Input.GetMouseButtonDown(1))//if the player right clicks and is within zone
             {
                 isHiding = !isHiding;
+                
                 player.SetActive(!isHiding);
+
+                // emergency fix for bug 
+                BoxCollider2D ghostCol = ghost.gameObject.GetComponent<BoxCollider2D>();
+                ghostCol.enabled = true;
             }
         }
         else

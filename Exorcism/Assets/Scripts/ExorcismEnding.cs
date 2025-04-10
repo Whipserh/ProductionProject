@@ -74,7 +74,6 @@ public class ExorcismEnding : MonoBehaviour
     public void LoadScene(int sceneNum)
     {
         SceneManager.LoadScene(sceneNum);
-        Application.Quit();
     }
 
     public void QuitGame()

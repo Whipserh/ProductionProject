@@ -1128,6 +1128,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   validHidingDistance: 2
+  ghost: {fileID: 6758619741708817483}
 --- !u!61 &294962352
 BoxCollider2D:
   m_ObjectHideFlags: 0

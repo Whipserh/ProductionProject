@@ -4583,9 +4583,13 @@ MonoBehaviour:
   rb: {fileID: 1185241224}
   hasKeycard: 0
   isMoving: 0
+  isHurt: 0
   clickMarker: {fileID: 594898577}
   inv: {fileID: 198634451}
   trap: {fileID: 0}
+  normalSprite: {fileID: 0}
+  flash1: {fileID: 0}
+  flash2: {fileID: 0}
 --- !u!50 &1185241224
 Rigidbody2D:
   serializedVersion: 4

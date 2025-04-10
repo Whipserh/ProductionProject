@@ -4587,9 +4587,11 @@ MonoBehaviour:
   clickMarker: {fileID: 594898577}
   inv: {fileID: 198634451}
   trap: {fileID: 0}
-  normalSprite: {fileID: 0}
-  flash1: {fileID: 0}
-  flash2: {fileID: 0}
+  normalSprite: {fileID: 47247432}
+  flash1: {fileID: 47247432}
+  flash2: {fileID: 47247432}
+  regenHealthTime: 5
+  HealhBarManager: {fileID: 1014727404}
 --- !u!50 &1185241224
 Rigidbody2D:
   serializedVersion: 4

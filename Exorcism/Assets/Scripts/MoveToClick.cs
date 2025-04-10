@@ -112,7 +112,7 @@ public class MoveToClick : MonoBehaviour
         {
             if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < -3) // if player clicks OOB
             {
-                return;
+               // return;
             }
             
             
